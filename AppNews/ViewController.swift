@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(tableView)
         
-        tableView.register(ArticleTableViewCall.self, forCellReuseIdentifier: ArticleTableViewCall.identifier)
+        tableView.register(ArticleTableViewCell.self, forCellReuseIdentifier: ArticleTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -53,7 +53,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCall.identifier, for: indexPath) as? ArticleTableViewCall else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCell.identifier, for: indexPath) as? ArticleTableViewCell else {
             return UITableViewCell()
         }
         cell.configure(with: articles[indexPath.row])

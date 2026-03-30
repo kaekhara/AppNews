@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 import AlamofireImage
 
-class ArticleTableViewCall: UITableViewCell {
+class ArticleTableViewCell: UITableViewCell {
     
-    static let identifier = "ArticleTableViewCall"
+    static let identifier = "ArticleTableViewCell"
     
     private let articleImageView: UIImageView = {
         let imageView = UIImageView()
@@ -87,7 +87,7 @@ class ArticleTableViewCall: UITableViewCell {
     
     func configure(with article: Article) {
         titleLabel.text = article.title
-        descriptionLabel.text = article.description
+        descriptionLabel.text = article.description ?? "Описание отсутствует"
         
         if let publishedAt = article.publishedAt {
             let dateFormatter = ISO8601DateFormatter()
@@ -97,6 +97,8 @@ class ArticleTableViewCall: UITableViewCell {
                 displayFormatter.timeStyle = .short
                 publishedDateLabel.text = "Published: \(displayFormatter.string(from: date))"
             }
+        } else {
+            publishedDateLabel.text = "Дата неизвестна"
         }
         
         if let imageUrl = article.urlToImage, let url = URL(string: imageUrl) {

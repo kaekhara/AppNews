@@ -78,7 +78,6 @@ class DetailsViewController: UIViewController {
     private func configureUI() {
         titleLabel.text = article.title
         descriptionLabel.text = article.description
-        contentTextView.text = "More content could go here..."
         
         if let imageUrl = article.urlToImage, let url = URL(string: imageUrl) {
             imageView.af.setImage(withURL: url)

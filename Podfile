@@ -8,6 +8,6 @@ target 'AppNews' do
   # Pods for AppNews
 pod 'SnapKit', '~> 5.7.0'
 pod 'Alamofire'
-pod 'AlamofireImage', '~> 4.1'
+pod 'AlamofireImage'
 
 end
